@@ -1,0 +1,2 @@
+from prevent_duplicates.prevent_duplicates.api import get_similar_docs
+from prevent_duplicates.prevent_duplicates import sync

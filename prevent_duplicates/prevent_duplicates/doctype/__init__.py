@@ -1,0 +1,1 @@
+from prevent_duplicates.prevent_duplicates.doctype.deduplicationindex import DeduplicationIndex
