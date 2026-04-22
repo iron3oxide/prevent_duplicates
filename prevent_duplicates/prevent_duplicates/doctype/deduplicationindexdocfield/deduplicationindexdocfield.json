@@ -1,30 +1,38 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2026-04-16 01:52:51.752401",
+ "creation": "2026-04-21 20:03:50.737465",
  "doctype": "DocType",
+ "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "field"
+  "field_name",
+  "is_relevant"
  ],
  "fields": [
   {
-   "fieldname": "field",
-   "fieldtype": "Link",
+   "fieldname": "field_name",
+   "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Field",
-   "options": "DocField",
+   "label": "Field name",
    "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_relevant",
+   "fieldtype": "Check",
+   "label": "Relevant for Deduplication"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-04-16 02:07:08.381170",
+ "modified": "2026-04-21 21:54:35.920362",
  "modified_by": "Administrator",
  "module": "Prevent Duplicates",
- "name": "DedupIndexDocField",
+ "name": "DeduplicationIndexDocField",
+ "naming_rule": "By script",
  "owner": "Administrator",
  "permissions": [],
  "row_format": "Dynamic",

@@ -13,9 +13,9 @@ IGNORE_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 
 
 
-class IntegrationTestDedupIndexDocField(IntegrationTestCase):
+class IntegrationTestDeduplicationIndexDocField(IntegrationTestCase):
 	"""
-	Integration tests for DedupIndexDocField.
+	Integration tests for DeduplicationIndexDocField.
 	Use this class for testing interactions between multiple components.
 	"""
 
