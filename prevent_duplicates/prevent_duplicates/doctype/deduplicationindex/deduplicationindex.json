@@ -1,0 +1,98 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:index_doctype",
+ "creation": "2026-04-21 16:53:07.972410",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "index_doctype",
+  "num_perm",
+  "similarity_threshold",
+  "doctype_fields",
+  "index_hex",
+  "flush_index"
+ ],
+ "fields": [
+  {
+   "description": "There should only ever be one index per DocType, therefore this will also serve as the name of the index.",
+   "fieldname": "index_doctype",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "DocType",
+   "options": "DocType",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "description": "Every non-Frappe field of the associated DocType. Check \"Relevant for Deduplication\" for every field you want included in the similarity search. Be aware that fields with low entropy, e.g. a single character field for gender, will not be prime candidates here.",
+   "fieldname": "doctype_fields",
+   "fieldtype": "Table",
+   "label": "DocType Fields",
+   "options": "DeduplicationIndexDocField"
+  },
+  {
+   "default": "32",
+   "description": "A higher number of permutation functions produces more accurate results but increases query cost.",
+   "fieldname": "num_perm",
+   "fieldtype": "Int",
+   "label": "Number of Permutations",
+   "non_negative": 1,
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "default": "0.700",
+   "description": "The percentage of similarity that a document must minimally have to the one about to be created in order to count as a likely duplicate. Must be set at initialization of the index, therefore you'll need to create a new one if your chosen threshold produces too many false positives/negatives.",
+   "fieldname": "similarity_threshold",
+   "fieldtype": "Float",
+   "label": "Similarity Threshold",
+   "non_negative": 1,
+   "precision": "3",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "description": "The pickled index stored as a hexadecimal string",
+   "fieldname": "index_hex",
+   "fieldtype": "Long Text",
+   "label": "Stored Index",
+   "read_only": 1
+  },
+  {
+   "button_color": "Danger",
+   "description": "Deletes every record from the index, which will lead to a complete rebuild when the next document is validated.",
+   "fieldname": "flush_index",
+   "fieldtype": "Button",
+   "label": "Flush Index"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-21 22:39:33.959092",
+ "modified_by": "Administrator",
+ "module": "Prevent Duplicates",
+ "name": "DeduplicationIndex",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
